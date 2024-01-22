@@ -1,0 +1,117 @@
+﻿@using Fis.mvc.Models;
+@model List<KullanicilarModel>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <title>SARIKOÇ HOLDİNG</title>
+    <meta name="viewport" content="width-device-width" ,initial-scale="1.0">
+    <link rel="stylesheet" href="~/css/personel.css">
+</head>
+<body style="background-color: gold;">
+    <!--üst kısım-->
+    <div id="basdiv" class="row">
+        <div id="logo">
+            <a href="~/Home/anasayfa"><img id="logoresmi" src="~/css/logo.png"></a>
+        </div>
+        <ul id="menu">
+            <li><a href="~/Home/FisTablosu">Fiş Tablosu</a></li>
+            <li><a href="~/Home/kazanc">Kazanç Hesabı</a></li>
+            <li><a href="~/Home/mesajlar">Mesajlar</a></li>
+            <li><a href="~/Home/giris">Çıkış</a></li>
+        </ul>
+    </div>
+    <div class="row">
+        <button id="k" type="button">Yeni Personel</button>
+        @using (Html.BeginForm("PersonelAra","Home",FormMethod.Post))
+        {
+                <ul class="area" id="menu">
+                    <li><input type="number" name="id" placeholder="Personel id"></li>
+                    <li><button id="a" type="submit">Ara</button></li>
+                </ul>   
+        } 
+    </div>
+    <table id="tablo" class="col-12" border="1">
+        <tr>
+            <th id="bas">Personel Tablosu</th>
+        </tr>
+    </table>
+    <table id="tablo" class="col-12" border="1">
+        <tr>
+            <th>Id</th>
+            <th>Ad Soyad</th>
+            <th>Meslek</th>
+            <th>Mail</th>
+            <th>Telefon</th>
+            <th>Kullanıcı Adı</th>
+            <th>Şifre</th>
+            <th>Yetki Türü</th>
+            <th>Düzenle</th>
+            <th>Sil</th>
+        </tr>
+        @foreach (var kullanici in Model)
+        {
+            <tr>
+                <td>@kullanici.id</td>
+                <td>@kullanici.AdSoyad</td>
+                <td>@kullanici.Meslek</td>
+                <td>@kullanici.Mail</td>
+                <td>@kullanici.TelefonNumarasi</td>
+                <td>@kullanici.KullaniciAdi</td>
+                <td>@kullanici.Sifre</td>
+                <td>@kullanici.YetkiTuru</td>
+                <td><button id="d" type="button" onclick="duzenle('@kullanici.id','@kullanici.AdSoyad', '@kullanici.Meslek', '@kullanici.Mail', '@kullanici.TelefonNumarasi', '@kullanici.KullaniciAdi', '@kullanici.Sifre', '@kullanici.YetkiTuru')">Düzenle</button></td>
+                <td><button id="s" type="button" onclick="sil(@kullanici.id)">Sil</button></td>
+            </tr>
+        }
+        
+    </table>
+    <script>
+
+        document.getElementById("k").addEventListener("click", function () {
+            var yeniSayfaURL = "kayit";
+            window.location.href = yeniSayfaURL;
+        });
+        function duzenle(id,AdSoyad, Meslek, Mail, TelefonNumarasi, KullaniciAdi, Sifre, YetkiTuru) {
+            // Verileri LocalStorage'a kaydet
+            localStorage.setItem('id', id);
+            localStorage.setItem('AdSoyad', AdSoyad);
+            localStorage.setItem('Meslek', Meslek);
+            localStorage.setItem('Mail', Mail);
+            localStorage.setItem('TelefonNumarasi', TelefonNumarasi);
+            localStorage.setItem('KullaniciAdi', KullaniciAdi);
+            localStorage.setItem('Sifre', Sifre);
+            localStorage.setItem('YetkiTuru', YetkiTuru);
+
+            // Yönlendirme
+            window.location.href = 'personelduzen';
+        }
+        function sil(personelId) {
+            var xhr = new XMLHttpRequest();
+            var url = '/Home/PersonelSil/' + personelId;
+            xhr.open('GET', url, true);
+            location.reload();
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    
+                    if (response.success) {
+                        alert('Personel silindi!');
+                        
+                    } else {
+                        alert('Silme işlemi sırasında bir hata oluştu: ' + response.error);
+                    }
+                } else {
+                    alert('Silme işlemi sırasında bir hata oluştu. HTTP durum kodu: ' + xhr.status);
+                }
+            };
+
+            xhr.onerror = function () {
+                alert('Silme işlemi sırasında bir hata oluştu. Ağ hatası.');
+            };
+
+            xhr.send();
+        }
+    </script>
+
+</body>
+</html>

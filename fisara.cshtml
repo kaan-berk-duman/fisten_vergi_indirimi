@@ -1,0 +1,69 @@
+﻿@using Fis.mvc.Models;
+@model List<FisTablosuModel>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <title>SARIKOÇ HOLDİNG</title>
+    <meta name="viewport" content="width-device-width" ,initial-scale="1.0">
+    <link rel="stylesheet" href="~/css/fisara.css">
+</head>
+<body style="background-color: gold;">
+    <!--üst kısım-->
+    <div id="basdiv" class="row">
+        <div id="logo">
+            <a href="~/Home/anasayfa"><img id="logoresmi" src="~/css/logo.png"></a>
+        </div>
+        <ul id="menu">
+            <li><a href="~/Home/FisTablosu">Fiş Tablosu</a></li>
+            <li><a href="~/Home/personel">Personeller</a></li>
+            <li><a href="~/Home/mesajlar">Mesajlar</a></li>
+            <li><a href="~/Home/giris">Çıkış</a></li>
+        </ul>
+    </div>
+
+    <div class="row">
+        @using (Html.BeginForm("fisarama", "Home", FormMethod.Post))
+        {
+            <ul class="area">
+                <p style="color:white;">FİŞ ARAMA</p>
+                <input type="text" name="Personelid" placeholder="Personel id">
+                <input type="date" name="Tarih" placeholder="Tarih">
+                <button id="buton" type="submit">Hesapla</button>
+            </ul>
+        }
+        <table id="tablo" class="col-12" border="1">
+            <tr>
+                <th id="bas">Fiş Tablosu</th>
+            </tr>
+        </table>
+        <table id="tablo" class="col-12" border="1">
+            <tr>
+                <th>Id</th>
+                <th>Tarih</th>
+                <th>Fiş No</th>
+                <th>Açıklama</th>
+                <th>Masraf</th>
+                <th>Kdv</th>
+                <th>Toplam</th>
+                <th>Toplam Kdv</th>
+                <th>Personel id</th>
+            </tr>
+            @foreach (var fis in Model)
+            {
+                <tr>
+                    <td>@fis.id</td>
+                    <td>@fis.Tarih.ToString("dd.MM.yyyy")</td>
+                    <td>@fis.FisNo</td>
+                    <td>@fis.Aciklama</td>
+                    <td>@fis.Masraf</td>
+                    <td>@fis.Kdv</td>
+                    <td>@fis.Toplam</td>
+                    <td>@fis.ToplamKdv</td>
+                    <td>@fis.Personelid</td>
+                </tr>
+            }
+            
+        </table>
+    </div>
+</body>
+</html>

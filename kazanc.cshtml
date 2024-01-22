@@ -1,0 +1,38 @@
+﻿@using Fis.mvc.Models;
+@model kazancModel
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <title>SARIKOÇ HOLDİNG</title>
+    <meta name="viewport" content="width-device-width" ,initial-scale="1.0">
+    <link rel="stylesheet" href="~/css/kazanc.css">
+</head>
+<body style="background-color: gold;">
+    <!--üst kısım-->
+    <div id="basdiv" class="row">
+        <div id="logo">
+            <a href="~/Home/anasayfa"><img id="logoresmi" src="~/css/logo.png"></a>
+        </div>
+        <ul id="menu">
+            <li><a href="~/Home/FisTablosu">Fiş Tablosu</a></li>
+            <li><a href="~/Home/personel">Personeller</a></li>
+            <li><a href="~/Home/mesajlar">Mesajlar</a></li>
+            <li><a href="~/Home/giris">Çıkış</a></li>
+        </ul>
+    </div>
+    @using (Html.BeginForm("kazanchesapla", "Home", FormMethod.Post))
+    {
+        <ul class="area">
+            <p style="color:white;">KAZANÇ HESAP</p>
+            <input type="text" name="Personelid" id="Personelid" placeholder="Personel id">
+            <input type="date" name="Tarih" id="Tarih" placeholder="Tarih">
+            <button id="buton" type="submit">Hesapla</button>
+        </ul>
+    }
+    
+    <script>
+        
+    </script>
+
+</body>
+</html>

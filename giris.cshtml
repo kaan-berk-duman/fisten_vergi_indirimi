@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/giris.css" />
+    <title>SARIKOÇ HOLDİNG</title>
+</head>
+<body>
+    @using (Html.BeginForm("girisdeneme", "Home", FormMethod.Post))
+    {
+        <ul class="area">
+            <img src="~/css/logo.png">
+            <input type="text" name="KullaniciAdi" id="KullaniciAdi" placeholder="Kullanıcı Adı">
+            <input type="password" name="Sifre" id="Sifre" placeholder="Şifre">
+            <button type="submit">GİRİŞ</button>
+        </ul>
+    }
+</body>
+</html>

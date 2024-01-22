@@ -1,0 +1,65 @@
+﻿
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/personelduzen.css" />
+    <title>SARIKOÇ HOLDİNG</title>
+</head>
+<body style="background-color: gold;">
+    <div id="basdiv" class="row">
+        <div id="logo">
+            <a href="~/Home/anasayfa"><img id="logoresmi" src="~/css/logo.png"></a>
+        </div>
+        <ul id="menu">
+            <li><a href="~/Home/FisTablosu">Fiş Tablosu</a></li>
+            <li><a href="~/Home/personel">Personel</a></li>
+            <li><a href="~/Home/kazanc">Kazanç Hesabı</a></li>
+            <li><a href="~/Home/mesajlar">Mesajlar</a></li>
+            <li><a href="~/Home/giris">Çıkış</a></li>
+        </ul>
+    </div>
+    @using (Html.BeginForm("personelduzenle", "Home", FormMethod.Post))
+    {
+        <ul class="area">
+            <p style="color:white;">PERSONEL DÜZENLE</p>
+            <input type="text" name="id" id="id" placeholder="id" readonly>
+            <input type="text" name="AdSoyad" id="AdSoyad" placeholder="Ad Soyad">
+            <input type="text" name="Meslek" id="Meslek" placeholder="Meslek">
+            <input type="email" name="Mail" id="Mail" placeholder="Mail">
+            <input type="tel" name="TelefonNumarasi" id="TelefonNumarasi" placeholder="Telefon Numarası">
+            <input type="text" name="KullaniciAdi" id="KullaniciAdi" placeholder="Kullanıcı Adı">
+            <input type="password" name="Sifre" id="Sifre" placeholder="Şifre">
+            <input type="text" name="YetkiTuru" id="YetkiTuru" placeholder="Yetki Türü">
+            <button type="submit" onclick="showAlert()">Düzenle</button>
+        </ul>
+    }
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // LocalStorage'dan verileri al
+            var id = localStorage.getItem('id');
+            var AdSoyad = localStorage.getItem('AdSoyad');
+            var Meslek = localStorage.getItem('Meslek');
+            var Mail = localStorage.getItem('Mail');
+            var TelefonNumarasi = localStorage.getItem('TelefonNumarasi');
+            var KullaniciAdi = localStorage.getItem('KullaniciAdi');
+            var Sifre = localStorage.getItem('Sifre');
+            var YetkiTuru = localStorage.getItem('YetkiTuru');
+
+            // Formdaki alanlara değerleri set et
+            document.getElementById("id").value = id;
+            document.getElementById("AdSoyad").value = AdSoyad;
+            document.getElementById("Meslek").value = Meslek;
+            document.getElementById("Mail").value = Mail;
+            document.getElementById("TelefonNumarasi").value = TelefonNumarasi;
+            document.getElementById("KullaniciAdi").value = KullaniciAdi;
+            document.getElementById("Sifre").value = Sifre;
+            document.getElementById("YetkiTuru").value = YetkiTuru;
+        })
+        function showAlert() {
+            alert("Personel düzenlendi.");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+/*kutu genişlikleri*/
+.col-1{width: 8.33%;}
+.col-2{width: 16.66%;}
+.col-3{width: 25%;}
+.col-4{width: 33.33%;}
+.col-5{width: 41.66%;}
+.col-6{width: 50%;}
+.col-7{width: 58.33%;}
+.col-8{width: 66.66%;}
+.col-85{width: 70.83%;}
+.col-875{width: 72.91%;}
+.col-9{width: 75%;}
+.col-10{width: 83.33%;}
+.col-11{width: 91.66%;}
+.col-12{width: 100%;}
+/*satırlar*/
+.row{
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+/*satırlar yan yana gelmesin*/
+.row::after{
+    content:"";
+    clear:both;
+    display:table;
+}
+/*500px den daha küçük ekranlar için*/
+@media screen and (max-width:500px){
+    [class*="col-"]{width: 100%;}
+}
+
+#basdiv{
+    width: 100%;
+    height: 60px;
+    background-color: black;
+}
+
+#logo a{
+    text-decoration: none;
+    float:left;
+    margin-top:15px;
+    margin-left:15px;
+}
+#logo #kullanici {
+    cursor: auto;
+    float:left;
+    color:white;
+    margin-top:20px;
+    margin-left:15px;
+}
+
+#logoresmi{
+    width: auto;
+    height: 37px;
+}
+
+#basdiv #menu {
+    list-style:none;
+    float:right;
+    margin:top top;
+}
+
+#basdiv #menu  li{
+    display:inline-block;
+    margin: 5px 10px;
+}
+
+#basdiv #menu  li a{
+    text-decoration: none;
+    font-size:20px;
+    padding: 5px 15px;
+    color:gold;
+}
+
+.area{
+    position:absolute;
+    top:56%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    padding: 40px;
+    text-align: center;
+    border-radius: 30px;
+    background-color: black;
+}
+
+.area input[type="text"],.area input[type="password"],.area input[type="email"],.area input[type="tel"]{
+    border-radius: 23px;
+    color:white;
+    outline: none;
+    background: none;
+    margin:18px auto;
+    padding:14px 25px;
+    border: 2px solid gold;
+    text-align: center;
+    display: block;
+}
+
+
+
+.area input[type="text"]:hover,button:hover,.area input[type="password"]:hover,.area input[type="email"]:hover,.area input[type="tel"]:hover{
+    border-color: white;
+}
+
+button{
+    background: none;
+    padding:9px 20px;
+    cursor:pointer;
+    color:white;
+    border:2px solid gold;
+    outline: none;
+    border-radius: 20px;
+}

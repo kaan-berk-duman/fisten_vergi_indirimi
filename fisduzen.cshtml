@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/fisduzen.css" />
+    <title>SARIKOÇ HOLDİNG</title>
+</head>
+<body style="background-color: gold;">
+    <div id="basdiv" class="row">
+        <div id="logo">
+            <a href="~/Home/anasayfa"><img id="logoresmi" src="~/css/logo.png"></a>
+        </div>
+        <ul id="menu">
+            <li><a href="~/Home/FisTablosu">Fiş Tablosu</a></li>
+            <li><a href="~/Home/kazanc">Kazanç Hesabı</a></li>
+            <li><a href="~/Home/mesajlar">Mesajlar</a></li>
+            <li><a href="~/Home/giris">Çıkış</a></li>
+        </ul>
+    </div>
+    @using (Html.BeginForm("fisduzenle", "Home", FormMethod.Post))
+    {
+        <ul class="area">
+            <p style="color:white;">FİŞ DÜZENLE</p>
+            <input type="text" name="id" id="id" placeholder="id">
+            <input type="date" name="Tarih" id="Tarih" placeholder="Tarih">
+            <input type="text" name="FisNo" id="FisNo" placeholder="Fiş No">
+            <input type="text" name="Aciklama" id="Aciklama" placeholder="Açıklama">
+            <input type="text" name="Masraf" id="Masraf" placeholder="Masraf">
+            <input type="text" name="Kdv" id="Kdv" placeholder="Kdv">
+            <input type="text" name="Toplam" id="Toplam" placeholder="Toplam">
+            <input type="text" name="ToplamKdv" id="ToplamKdv" placeholder="Toplam Kdv">
+            <input type="text" name="Personelid" id="Personelid" placeholder="Personel id">
+            <button type="submit" onclick="showAlert()">Düzenle</button>
+        </ul>
+    }
+    <footer>aşağı boşluk</footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // LocalStorage'dan verileri al
+            var id = localStorage.getItem('id');
+            var Tarih = localStorage.getItem('Tarih');
+            var FisNo = localStorage.getItem('FisNo');
+            var Aciklama = localStorage.getItem('Aciklama');
+            var Masraf = localStorage.getItem('Masraf');
+            var Kdv = localStorage.getItem('Kdv');
+            var Toplam = localStorage.getItem('Toplam');
+            var ToplamKdv = localStorage.getItem('ToplamKdv');
+            var Personelid = localStorage.getItem('Personelid');
+
+            var formattedTarih = new Date(Tarih).toISOString().split('T')[0];
+            // Formdaki alanlara değerleri set et
+            document.getElementById("id").value = id;
+            document.getElementById("Tarih").value = formattedTarih;
+            document.getElementById("FisNo").value = FisNo;
+            document.getElementById("Aciklama").value = Aciklama;
+            document.getElementById("Masraf").value = Masraf;
+            document.getElementById("Kdv").value = Kdv;
+            document.getElementById("Toplam").value = Toplam;
+            document.getElementById("ToplamKdv").value = ToplamKdv;
+            document.getElementById("Personelid").value = Personelid;
+        })
+        function showAlert() {
+            alert("Personel düzenlendi.");
+        }
+    </script>
+</body>
+</html>

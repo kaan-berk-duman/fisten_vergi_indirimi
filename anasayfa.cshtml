@@ -1,0 +1,43 @@
+﻿@using Fis.mvc.Models;
+@model List<MesajlarModel>
+
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <title>SARIKOÇ HOLDİNG</title>
+    <meta name="viewport" content="width-device-width" ,initial-scale="1.0">
+    <link rel="stylesheet" href="~/css/anasayfa.css">
+</head>
+<body style="background-color: gold;">
+    <!--üst kısım-->
+    <div id="basdiv" class="row">
+        <div id="logo">
+            <a href="~/Home/anasayfa"><img id="logoresmi" src="~/css/logo.png"></a>
+            <a id="cikis" href="~/Home/giris">Çıkış</a>
+        </div>
+        <div id="sol" class="col-2">
+            <a class="row" href="~/Home/FisTablosu">Fişler</a>
+            <hr>
+            <a class="row" href="~/Home/personel">Personeller</a>
+            <hr>
+            <a class="row" href="~/Home/kazanc">Kazanç Hesabı</a>
+            <hr>
+            <a class="row" href="~/Home/mesajlar">Mesajlar</a>
+        </div>
+        <div class="row">
+            <table id="tablo" class="col-12" border="1">
+                <tr>
+                    <th>Mesajlar</th>
+                </tr>
+                @foreach(var mesaj in Model){
+                <tr>
+                    <td>@mesaj.id-@mesaj.Mesaj-@mesaj.AdSoyad</td>
+                </tr>
+                }  
+                
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <title>SARIKOÇ HOLDİNG</title>
+    <meta name="viewport" content="width-device-width" ,initial-scale="1.0">
+    <link rel="stylesheet" href="~/css/mesajduzen.css">
+</head>
+<body style="background-color: gold;">
+    <!--üst kısım-->
+    <div id="basdiv" class="row">
+        <div id="logo">
+            <a href="~/Home/anasayfa"><img id="logoresmi" src="~/css/logo.png"></a>
+        </div>
+        <ul id="menu">
+            <li><a href="~/Home/FisTablosu">Fiş Tablosu</a></li>
+            <li><a href="~/Home/personel">Personeller</a></li>
+            <li><a href="~/Home/kazanc">Kazanç Hesabı</a></li>
+            <li><a href="~/Home/giris">Çıkış</a></li>
+        </ul>
+    </div>
+    <div class="row">
+        @using (Html.BeginForm("mesajduzenle", "Home", FormMethod.Post))
+        {
+            <ul class="area">
+                <p style="color:white;">MESAJI DÜZENLE</p>
+                <input type="text" name="id" id="id" placeholder="id" readonly>
+                <input type="text" name="AdSoyad" id="AdSoyad" placeholder="Personel Adı">
+                <textarea name="Mesaj" id="Mesaj" placeholder="Mesajı buraya girin..."></textarea>
+                <button id="d" type="submit" onclick="showAlert()">Düzenle</button>
+            </ul>
+        }
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // LocalStorage'dan verileri al
+            var id = localStorage.getItem('id');
+            var AdSoyad = localStorage.getItem('AdSoyad');
+            var Mesaj = localStorage.getItem('Mesaj');
+
+            // Formdaki alanlara değerleri set et
+            document.getElementById("id").value = id;
+            document.getElementById("AdSoyad").value = AdSoyad;
+            document.getElementById("Mesaj").value = Mesaj;
+        })
+        function showAlert() {
+            alert("Mesaj düzenlendi.");
+        }
+    </script>
+</body>
+</html>

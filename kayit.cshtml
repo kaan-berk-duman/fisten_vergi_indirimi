@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/kayit.css" />
+    <title>SARIKOÇ HOLDİNG</title>
+</head>
+<body style="background-color: gold;">
+    <div id="basdiv" class="row">
+        <div id="logo">
+            <a href="~/Home/anasayfa"><img id="logoresmi" src="~/css/logo.png"></a>
+        </div>
+        <ul id="menu">
+            <li><a href="~/Home/FisTablosu">Fiş Tablosu</a></li>
+            <li><a href="~/Home/personel">Personel</a></li>
+            <li><a href="~/Home/kazanc">Kazanç Hesabı</a></li>
+            <li><a href="~/Home/mesajlar">Mesajlar</a></li>
+            <li><a href="~/Home/giris">Çıkış</a></li>
+        </ul>
+    </div>
+    @using (Html.BeginForm("kayitol", "Home", FormMethod.Post))
+    {
+        <ul class="area">
+            <p style="color:white;">PERSONEL KAYIT</p>
+            <input type="text" name="AdSoyad" placeholder="Ad Soyad">
+            <input type="text" name="Meslek" placeholder="Meslek">
+            <input type="email" name="Mail" placeholder="Mail">
+            <input type="tel" name="TelefonNumarasi" placeholder="Telefon Numarası">
+            <input type="text" name="KullaniciAdi" placeholder="Kullanıcı Adı">
+            <input type="password" name="Sifre" placeholder="Şifre">
+            <input type="text" name="YetkiTuru" placeholder="Yetki Türü">
+            <button type="submit" onclick="showAlert()">Kayıt Ol</button>
+        </ul>
+    }
+</body>
+<script>
+    function showAlert() {
+        alert("Personel sisteme kaydedildi.");
+    }
+</script>
+</html>

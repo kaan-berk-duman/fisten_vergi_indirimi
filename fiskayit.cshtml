@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/fiskayit.css" />
+    <title>SARIKOÇ HOLDİNG</title>
+</head>
+<body style="background-color: gold;">
+    <div id="basdiv" class="row">
+        <div id="logo">
+            <a href="~/Home/anasayfa"><img id="logoresmi" src="~/css/logo.png"></a>
+        </div>
+        <ul id="menu">
+            <li><a href="~/Home/FisTablosu">Fiş Tablosu</a></li>
+            <li><a href="~/Home/kazanc">Kazanç Hesabı</a></li>
+            <li><a href="~/Home/mesajlar">Mesajlar</a></li>
+            <li><a href="~/Home/giris">Çıkış</a></li>
+        </ul>
+    </div>
+    @using(Html.BeginForm("fiskayitet", "Home", FormMethod.Post))
+    {
+        <ul class="area">
+            <p style="color:white;">FİŞ GİRİŞİ</p>
+            <input type="date" name="Tarih" placeholder="Tarih">
+            <input type="text" name="FisNo" placeholder="Fiş No">
+            <input type="text" name="Aciklama" placeholder="Açıklama">
+            <input type="text" name="Masraf" placeholder="Masraf">
+            <input type="text" name="Kdv" placeholder="Kdv">
+            <input type="text" name="Toplam" placeholder="Toplam">
+            <input type="text" name="ToplamKdv" placeholder="Toplam Kdv">
+            <input type="text" name="Personelid" placeholder="Personel id">
+            <button type="submit" onclick="showAlert()">Kaydet</button>
+        </ul>
+    }
+    <footer>aşağı boşluk</footer>
+    <script>
+        function showAlert() {
+            alert("Fiş sisteme kaydedildi.");
+        }
+    </script>
+</body>
+
+</html>

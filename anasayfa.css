@@ -1,0 +1,146 @@
+﻿/*kutu genişlikleri*/
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-85 {
+    width: 70.83%;
+}
+
+.col-875 {
+    width: 72.91%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+/*satırlar*/
+.row {
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+    /*satırlar yan yana gelmesin*/
+    .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+/*500px den daha küçük ekranlar için*/
+@media screen and (max-width:500px) {
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+
+#basdiv {
+    width: 100%;
+    height: 60px;
+    background-color: black;
+}
+
+#logo a {
+    text-decoration: none;
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+#logo #kullanici {
+    cursor: auto;
+    float: left;
+    color: white;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+#logoresmi {
+    width: auto;
+    height: 37px;
+}
+
+#logo #cikis {
+    float: right;
+    margin-right: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 5px 15px;
+    color: gold;
+}
+
+#sol {
+    background-color: black;
+    position: absolute;
+    margin-top: 65px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+    #sol a {
+        text-decoration: none;
+        color: white;
+    }
+
+#tablo {
+    float: right;
+    margin-top: 70px;
+    margin-left: 20px;
+    border: 2px solid grey;
+    border-collapse: collapse;
+    width: 500px;
+}
+
+th {
+    height: 50px;
+    background-color: grey;
+    color: gold;
+}
+
+td {
+    height: 70px;
+    background-color: white;
+    max-width: 500px;
+    overflow: hidden;
+    white-space: normal;
+    word-wrap: break-word;
+}
